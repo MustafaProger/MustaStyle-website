@@ -14,7 +14,7 @@ const imagemin = require('gulp-imagemin');
 gulp.task('server', function () {
     browserSync.init({
         server: {
-            baseDir: "dist"
+            baseDir: "src"
         }
     });
 
