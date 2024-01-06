@@ -15,4 +15,13 @@ $(document).ready(function () {
         });
         return false;
     });
+
+    //появление скрытого navbar при нажатии на бургер
+    $('.burger__menu').on('click', function () {
+        $('.burger__menu').toggleClass('active');
+        $('.navbar').toggleClass('active');
+        $('body').toggleClass('lock');
+
+
+    });
 })
