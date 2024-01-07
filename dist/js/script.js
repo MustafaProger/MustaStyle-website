@@ -6,10 +6,10 @@ $(document).ready(function () {
     });
 
     // плавная анимация при скролле
-    $('a[href^="#"').on('click', function() {
+    $('a[href^="#"').on('click', function () {
 
         let href = $(this).attr('href');
-    
+
         $('html, body').animate({
             scrollTop: $(href).offset().top
         });

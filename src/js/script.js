@@ -6,10 +6,10 @@ $(document).ready(function () {
     });
 
     // плавная анимация при скролле
-    $('a[href^="#"').on('click', function() {
+    $('a[href^="#"').on('click', function () {
 
         let href = $(this).attr('href');
-    
+
         $('html, body').animate({
             scrollTop: $(href).offset().top
         });
@@ -20,8 +20,7 @@ $(document).ready(function () {
     $('.burger__menu').on('click', function () {
         $('.burger__menu').toggleClass('active');
         $('.navbar').toggleClass('active');
+        $('.list__item').toggleClass('fadeindown');
         $('body').toggleClass('lock');
-
-
     });
 })
