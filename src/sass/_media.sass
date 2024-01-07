@@ -15,7 +15,7 @@
             .about-block
                 .content-block
                     min-height: 330px
-    
+     
 @media (max-width:947px)
     .about
         .content
@@ -124,7 +124,12 @@
                         animation-delay: 0.1s
                     .list__item:nth-child(6)
                         animation-delay: 0.12s
-
+    
+    .promo
+        background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../img/promo-bg-mobile.png") no-repeat
+        background-position: 50% 50%
+        background-size: 60%    
+    
     .about
         .content
             .about-block
@@ -134,10 +139,23 @@
                     min-height: auto
                     height: 100%
                     width: 100%
-    .promo
-        background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../img/promo-bg-mobile.png") no-repeat
-        background-position: 50% 50%
-        background-size: 60%
+
+    .new-modals
+        .content
+            .carousel
+                width: 70%
+                height: 40%
+                .carousel__inner
+                    .slick-prev,
+                    .slick-next
+                        left: -75px
+                        img
+                            width: 100px
+                            height: 100px
+                            border: none
+                    .slick-next
+                        left: auto
+                        right: -75px
 
 @media (max-width:618px)
     .promo
@@ -149,3 +167,14 @@
                 display: block
                 padding: 0px 0 15px 0
 
+    .new-modals
+        .content
+            .carousel
+                width: 100%
+                height: 100%
+                div
+                    margin: 0
+                    img
+                        width: 100%
+                        height: 100%
+                        border: 2px solid $color_black-1
