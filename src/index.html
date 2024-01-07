@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icons/iconSiteWhite.svg" type="image/x-icon">
+    <!-- подлючение favicon -->
+    <link rel="icon" href="icons/iconFavicon.svg" type="image/x-icon">
+    <!-- подлючение slick-слайдер -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!-- подлючение фонов-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lora&display=swap" rel="stylesheet">
+    <!--подлючение стилей-->
     <link rel="stylesheet" href="css/style.min.css">
     <title>MustaStyle</title>
 </head>
@@ -18,7 +23,7 @@
             <div class="content">
                 <div class="icon">
                     <a href="#" class="icon__link">
-                        <img src="icons/icon.png" alt="MustaStyle-icon">
+                        <img src="icons/iconHeader.png" alt="MustaStyle-icon">
                     </a>
                 </div>
                 <div class="burger__menu">
@@ -28,9 +33,9 @@
                     <ul class="list">
                         <li class="list__item"><a href="#promo" class="list__link">Главная</a></li>
                         <li class="list__item"><a href="#about" class="list__link">О нас</a></li>
-                        <li class="list__item"><a href="#" class="list__link">Новинки</a></li>
-                        <li class="list__item"><a href="#" class="list__link">Отзывы</a></li>
+                        <li class="list__item"><a href="#new-modals" class="list__link">Новинки</a></li>
                         <li class="list__item"><a href="#" class="list__link">Консультация | Оформить заказ</a></li>
+                        <li class="list__item"><a href="#" class="list__link">Отзывы</a></li>
                         <li class="list__item contact"><a class="list__link">Контакты</a>
                             <ul class="list-contact">
                                 <li class="list-contact__item"><a href="tel:+79680603084" class="list__link-contact">+7
@@ -62,9 +67,10 @@
         <div class="container">
             <div class="content">
                 <h1 class="title" data-aos="fade-down" data-aos-once="true">О нас</h1>
-                <p class="subtitle" data-aos="fade-down" data-aos-once="true">Приветствую тебя на MustaStyle — моем часовом мире, где время становится стилем.
+                <p class="subtitle" data-aos="fade-down" data-aos-once="true">Приветствую тебя на MustaStyle — моем
+                    часовом мире, где время становится стилем.
                     Давай знакомиться поближе, погружаясь в атмосферу элегантности и точности. Подробнее о нашей
-                    компании читай ниже.</p>
+                    компании читай ниже</p>
                 <div class="about-block">
                     <div class="content-block" data-aos="fade-down" data-aos-once="true">
                         <div class="number">01</div>
@@ -88,7 +94,7 @@
                         <p class="text">Наша цель - не просто предоставлять товар, а создавать уникальный опыт для наших
                             клиентов. Мы стремимся удовлетворить запросы даже самых требовательных ценителей часов.
                             Каждая модель внимательно отобрана и прошла тщательный контроль качества, чтобы
-                            удовлетворить ожидания даже самых искушенных покупателей</p>
+                            удовлетворить ожидания даже самых искушенных покупателей.</p>
                     </div>
                     <div class="content-block" data-aos="fade-down" data-aos-once="true">
                         <div class="numbrer-and-title">
@@ -121,18 +127,36 @@
         </div>
     </section>
 
+    <seciton class="new-modals" id="new-modals">
+        <div class="container">
+            <div class="content">
+                <h1 class="title">Новинки</h1>
+                <p class="subtitle">"Новинки 2024" на MustaStyle – встречайте последние тренды часового искусства. Элегантность современных дизайнов объединяется с инновациями, предлагая уникальные взгляды на время в этом году.</p>
+                <div class="my-slider">
+                    <div class="my-slider__inner">
+                        <div><img src="img/img-carousel/watch-1.jpeg" alt=""></div>
+                        <div><img src="img/img-carousel/watch-2.jpeg" alt=""></div>
+                        <div><img src="img/img-carousel/watch-3.jpeg" alt=""></div>
+                        <div><img src="img/img-carousel/watch-4.jpeg" alt=""></div>
+                        <div><img src="img/img-carousel/watch-5.jpeg" alt=""></div>
+                        <div><img src="img/img-carousel/watch-6.jpeg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </seciton>
     <!--подключение jquery в стиле min-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     <!--подключение AOS анимаций в стиле min-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
-    
     <!--подлючение файлов js-->
     <script src="js/script.js"></script>
+    <!--подлючение slick-слайдер-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 </body>
 
 </html>

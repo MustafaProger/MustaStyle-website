@@ -20,8 +20,16 @@ $(document).ready(function () {
     $('.burger__menu').on('click', function () {
         $('.burger__menu').toggleClass('active');
         $('.navbar').toggleClass('active');
+        $('.list__item').toggleClass('fadeindown');
         $('body').toggleClass('lock');
-
-
     });
+
+    //работа с slick-слайдер
+    var slider = tns({
+        container: '.my-slider',
+        items: 1,
+        slideBy: 'page',
+        // autoplay: true
+        centerPadding: 1000
+      });
 })

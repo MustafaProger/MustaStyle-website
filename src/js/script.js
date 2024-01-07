@@ -23,4 +23,14 @@ $(document).ready(function () {
         $('.list__item').toggleClass('fadeindown');
         $('body').toggleClass('lock');
     });
+
+    //работа с slick-слайдер
+    var slider = tns({
+        container: '.my-slider__inner',
+        items: 1,
+        slideBy: 'page',
+        nav: false,
+        // navPosition: top,
+        controlsText: ['<img src="../icons/arrows/arrowLeft.svg">', '<img src="../icons/arrows/arrowRight.svg">'],
+      });
 })
