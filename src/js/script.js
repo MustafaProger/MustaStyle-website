@@ -1,3 +1,5 @@
+"use strict"
+
 $(document).ready(function () {
 
     // создание невидимого меню для контактов
@@ -62,19 +64,19 @@ $(document).ready(function () {
     });
 
     //работы с формами
-    $('ul.tabs__caption').each(function(i) {
+    $('ul.tabs__caption').each(function (i) {
         var storage = localStorage.getItem('tab' + i);
         if (storage) {
-          $(this).find('li').removeClass('active').eq(storage).addClass('active')
-          .closest('div.tabs').find('div.tabs__content').removeClass('active').eq(storage).addClass('active');
+            $(this).find('li').removeClass('active').eq(storage).addClass('active')
+                .closest('div.tabs').find('div.tabs__content').removeClass('active').eq(storage).addClass('active');
         }
-      });
-   
-    $('ul.tabs__caption').on('click', 'li:not(.active)', function() {
-    $(this).addClass('active').siblings().removeClass('active').closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
-    var ulIndex = $('ul.tabs__caption').index($(this).parents('ul.tabs__caption'));
-    localStorage.removeItem('tab' + ulIndex);
-    localStorage.setItem('tab' + ulIndex, $(this).index());
+    });
+
+    $('ul.tabs__caption').on('click', 'li:not(.active)', function () {
+        $(this).addClass('active').siblings().removeClass('active').closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
+        var ulIndex = $('ul.tabs__caption').index($(this).parents('ul.tabs__caption'));
+        localStorage.removeItem('tab' + ulIndex);
+        localStorage.setItem('tab' + ulIndex, $(this).index());
     });
 
 
@@ -84,9 +86,9 @@ $(document).ready(function () {
             $(disactive).removeClass('active');
         });
     }
-    
-    active_text_about_section('.consultation__btn','.text_about_section-consultation','.text_about_section-make-order')
-    active_text_about_section('.make-order__btn','.text_about_section-make-order', '.text_about_section-consultation')
+
+    active_text_about_section('.consultation__btn', '.text_about_section-consultation', '.text_about_section-make-order')
+    active_text_about_section('.make-order__btn', '.text_about_section-make-order', '.text_about_section-consultation')
 
     // Проверяем, была ли уже сохранена информация о выбранной секции
     var selectedSection = localStorage.getItem('selectedSection');
@@ -117,5 +119,63 @@ $(document).ready(function () {
         $('.text_about_section-consultation').removeClass('active');
     });
 
-    
+    //маска для номера
+    $("input[name=phone]").mask("+7 999 999-99-99");
+
+    //валидация формы
+    function validateForm(item) {
+        $(item).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                }
+            },
+            messages: {
+                name: {
+                    required: "Введите свое имя",
+                    minlength: jQuery.validator.format('Введите минимум {0} символов')
+                },
+                email: {
+                    required: "Введите свой адрес почты", 
+                    email: "Неправильно введена почта"
+                },
+                phone: "Введите свой номер телефона",
+
+            },
+        });
+    };
+
+    validateForm(".consultation form");
+    validateForm(".make-order form");
+
+    //отправка на почту при помощи ajax
+    $('form').submit(function(e) {
+        e.preventDefault();
+
+        if($(this).valid()) {
+            $('body').addClass('sending')
+        } else {
+            return
+        }
+
+        $.ajax({
+            type: "POST",
+            url: 'php/mail.php',
+            data: $(this).serialize() 
+        }).done(function() {
+            $(this).find('input').val('');
+            $('body').removeClass('sending');
+            $("form").trigger("reset");;
+        });
+
+        return false
+    });
 })
