@@ -257,6 +257,7 @@ body.lock
                             margin: 10px
                             font-size: 0px
                             outline: none
+                            transition: ease-in-out 0.25s
                     .slick-active
                         button
                             background-color: #000
@@ -305,7 +306,7 @@ body.lock
                             margin: 10px 0 0 0
                             span
                                 font-weight: 900
-                                color: rgba(164, 119, 22, 0.8)
+                                color: rgba(239, 84, 37, 0.8)
 
                         input, textarea
                             margin: 3px 0
@@ -324,10 +325,18 @@ body.lock
                             font-weight: 400
                             background: #F6F6F6
                             color: $color_black-1
-                            border: 1px solid  $color_black-1
+                            border: 1px solid $color_black-1
                             &:hover
                                 background: $color_black-1
                                 color: $color_white-2
+
+                        input.error
+                            border: none
+                            border: 1px solid rgba(239, 84, 37, 0.8)
+                            box-shadow: 3px 3px 0px rgba(239, 84, 37, 0.8)
+                        label.error
+                            color: rgba(239, 84, 37, 1)
+
             .tabs__content.active 
                 display: block
         .text-about-section.active
