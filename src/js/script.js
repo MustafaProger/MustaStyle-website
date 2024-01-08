@@ -1,4 +1,7 @@
-$(document).ready(function () {
+"use strict"
+
+
+$(function () {
 
     // создание невидимого меню для контактов
     $('.contact').on('click', function () {
@@ -6,7 +9,7 @@ $(document).ready(function () {
     });
 
     // плавная анимация при скролле
-    $('a[href^="#"').on('click', function () {
+    $('a[href^="#"]').on('click', function () {
 
         let href = $(this).attr('href');
 
@@ -153,4 +156,26 @@ $(document).ready(function () {
 
     validateForm(".consultation form");
     validateForm(".make-order form");
-})
+
+    //отправка на почту при помощи ajax
+    // $("form").submit(function(e) { 
+    //     e.preventDefault();
+        
+    //     if($(this).valid()) {
+    //         $('body').addClass('sending')
+    //     } else {
+    //         return;
+    //     }
+
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "php/mail.php",
+    //         data: $(this).serialize()
+    //     }).done(function() {
+    //         $(this).find("input").val("");
+    //         $('body').removeClass('sending');
+    //         $("form").trigger("reset");
+    //     });
+    //     return false;
+    // });
+});
