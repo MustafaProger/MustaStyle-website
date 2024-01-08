@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // создание невидимого меню для контактов
     $('.contact').on('click', function () {
-        $('.contact').toggleClass('active');
+        $('.contact').toggleClass('show_contact');
     });
 
     // плавная анимация при скролле
@@ -60,4 +60,62 @@ $(document).ready(function () {
             }
         ]
     });
+
+    //работы с формами
+    $('ul.tabs__caption').each(function(i) {
+        var storage = localStorage.getItem('tab' + i);
+        if (storage) {
+          $(this).find('li').removeClass('active').eq(storage).addClass('active')
+          .closest('div.tabs').find('div.tabs__content').removeClass('active').eq(storage).addClass('active');
+        }
+      });
+   
+    $('ul.tabs__caption').on('click', 'li:not(.active)', function() {
+    $(this).addClass('active').siblings().removeClass('active').closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
+    var ulIndex = $('ul.tabs__caption').index($(this).parents('ul.tabs__caption'));
+    localStorage.removeItem('tab' + ulIndex);
+    localStorage.setItem('tab' + ulIndex, $(this).index());
+    });
+
+
+    function active_text_about_section(btn, active, disactive) {
+        $(btn).on('click', function () {
+            $(active).addClass('active');
+            $(disactive).removeClass('active');
+        });
+    }
+    
+    active_text_about_section('.consultation__btn','.text_about_section-consultation','.text_about_section-make-order')
+    active_text_about_section('.make-order__btn','.text_about_section-make-order', '.text_about_section-consultation')
+
+    // Проверяем, была ли уже сохранена информация о выбранной секции
+    var selectedSection = localStorage.getItem('selectedSection');
+
+    // Если есть сохраненная информация, активируем соответствующую секцию
+    if (selectedSection === 'make-order') {
+        $('.text_about_section-make-order').addClass('active');
+        $('.text_about_section-consultation').removeClass('active');
+    } else {
+        // По умолчанию активируем секцию консультации
+        $('.text_about_section-consultation').addClass('active');
+        $('.text_about_section-make-order').removeClass('active');
+    }
+
+    $('.consultation__btn').on('click', function () {
+        // Сохраняем выбор секции в localStorage
+        localStorage.setItem('selectedSection', 'consultation');
+
+        $('.text_about_section-consultation').addClass('active');
+        $('.text_about_section-make-order').removeClass('active');
+    });
+
+    $('.make-order__btn').on('click', function () {
+        // Сохраняем выбор секции в localStorage
+        localStorage.setItem('selectedSection', 'make-order');
+
+        $('.text_about_section-make-order').addClass('active');
+        $('.text_about_section-consultation').removeClass('active');
+    });
+
+    
 })

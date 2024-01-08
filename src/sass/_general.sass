@@ -122,7 +122,7 @@ body.lock
                     li:nth-child(2)
                                 position: relative
                                 top: 5px
-            .contact.active
+            .contact.show_contact
                 &::after 
                     border-left: 5px solid transparent
                     border-right: 5px solid transparent
@@ -199,7 +199,7 @@ body.lock
         display: flex
         justify-content: center
         flex-direction: column
-        padding: 100px 0 
+        padding: 100px 0 0 0
         .title
             @include title
         .subtitle
@@ -213,11 +213,11 @@ body.lock
             width: 80%
             height: 40%
             div
-                margin: 0 15px 0 7.5px
+                margin: 0 15px 0 4px
                 img
                     width: 100%
                     height: 100%
-                    border: 2px solid $color_black-1
+                    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5)
                 .slick-prev,
                 .slick-next
                     cursor: pointer
@@ -232,6 +232,8 @@ body.lock
                         width: 150px
                         height: 150px
                         border: none
+                        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
+
                 .slick-next
                     left: auto
                     right: -100px
@@ -260,3 +262,73 @@ body.lock
                             background-color: #000
                             border: 1px solid #000
                             outline: none
+
+.consultation-or-make-order
+    .content
+        padding: 100px 0 0 0
+        .text-about-section
+            display: none
+            .title
+                @include title
+            .subtitle
+                @include text
+                padding: 0 0 50px 0
+        .tabs
+            max-width: 700px
+            margin: 0 auto
+            .tabs__caption
+                list-style: none
+                display: flex
+                li
+                    width: 100%
+                    button
+                        @include button
+                        padding: 15px 0
+                        width: 100%
+                        font-size: 16px
+                        color: $color_black-1
+                        border: 1px solid $color_black-1
+                li.active
+                    button
+                        color: $color_white-2
+                        background: $color_black-1
+            .tabs__content 
+                display: none   
+                .consultation,
+                .make-order
+                    position: relative
+                    .form
+                        position: relative
+                        display: flex
+                        flex-direction: column
+                        label
+                            margin: 10px 0 0 0
+                            span
+                                font-weight: 900
+                                color: rgba(164, 119, 22, 0.8)
+
+                        input, textarea
+                            margin: 3px 0
+                            padding: 15px 10px
+                            font-size: 16px
+                            border: 1px solid $color_black-1
+                            outline: 0
+                            transition: ease-in-out 0.25s
+                            border-radius: 0%
+                            &:focus
+                                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)
+                        button
+                            @include button
+                            margin: 20px 0 0 0
+                            font-size: 16px
+                            font-weight: 400
+                            background: #F6F6F6
+                            color: $color_black-1
+                            border: 1px solid  $color_black-1
+                            &:hover
+                                background: $color_black-1
+                                color: $color_white-2
+            .tabs__content.active 
+                display: block
+        .text-about-section.active
+            display: block
