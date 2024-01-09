@@ -1,45 +1,45 @@
 <?php 
 
 $name = $_POST['name'];
-$phone = $_POST['phone'];
 $email = $_POST['email'];
+$phone = $_POST['phone'];
 $model = $_POST['model-watch'];
 $additional_info = $_POST['additional-info'];
-
 
 require_once('../phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
 
-// $mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-$mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'mustastylefeedback@gmail.com';                 // Наш логин
-$mail->Password = 'uwre bhfd oynd sxxi';                           // Наш пароль от ящика
-$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465;                                    // TCP port to connect to
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->Username = 'mustastylefeedback@gmail.com';
+$mail->Password = 'uwre bhfd oynd sxxi';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
  
-$mail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');   // От кого письмо 
-$mail->addAddress('todzievdier@gmail.com', 'User');     // Add a recipient
-//$mail->addAddress('ellen@example.com');               // Name is optional
-//$mail->addReplyTo('info@example.com', 'Information');
-//$mail->addCC('cc@example.com');
-//$mail->addBCC('bcc@example.com');
-//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                                  // Set email format to HTML
+$mail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');
+$mail->addAddress('todzievdier@gmail.com', 'User');
+$mail->isHTML(true);
 
+$mail->Subject ='Оформить заказ';
 
-$mail->Subject = $name . ' хочет оформить заказ';
-$mail->Body    = '
-	Имя: ' . $name .  '<br> 
-    E-mail: ' . $email . ' <br>
-    Номер телефона: ' . $phone .' <br>
-    Модель часов: ' . $model . ' <br>
-    Доп. информация: ' . $additional_info . "";
+$html_content = file_get_contents('make-order.html');
+if ($html_content === false) {
+    die('Не удалось прочитать файл HTML');
+    
+}
 
+$html_content = str_replace('{NAME}', $name, $html_content);
+$html_content = str_replace('{E-MAIL}', $email, $html_content);
+$html_content = str_replace('{PHONE}', $phone, $html_content);
+$html_content = str_replace('{MODEL}', $model, $html_content);
+$html_content = str_replace('{MORE_INFO}', $additional_info, $html_content);
+
+$mail->Body = $html_content;
+
+$headers[] = 'MIME-Version: 1.0';
+$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
 if(!$mail->send()) {
     return false;

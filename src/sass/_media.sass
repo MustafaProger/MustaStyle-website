@@ -6,8 +6,9 @@
     opacity: 1
     transform: translateY(0)
 
+// Данный класс срабатывает, когда мы нажимаем на меню бургер и этот класс добавляется к нашим li(a). Если этого класса не будет то анимация на наши li будут срабатывать после загрузки сайта, а не после нажатия на меню бурер
 .fadeindown
-  animation: fadeindown 1s ease-in-out
+    animation: fadeindown 1s ease-in-out
 
 @media (max-width:1080px)
     .about
@@ -22,6 +23,10 @@
             .about-block
                 .content-block
                     min-height: 360px
+
+    .overlay
+        .modal
+            width: 70%
 
 @media (max-width:821px)
     .about
@@ -92,6 +97,7 @@
                         padding: 10px 0
                         font-size: 30px
                         .list__link
+                            animation: fadeindown 1s ease-in-out
                             &::after
                                 width: 0
                                 height: 0
@@ -157,6 +163,13 @@
                     left: auto
                     right: -75px
 
+    .overlay
+        .modal
+            width: 80%
+            .close
+                top: -6%
+                right: 2%
+
 @media (max-width:618px)
     
     .promo
@@ -180,7 +193,7 @@
                         height: 100%
                         border: 1px solid $color_black-1
                         box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
-
+    
 @media (max-width:425px)
     .consultation-or-make-order
         .content
@@ -190,3 +203,8 @@
                     li
                         width: 100%
 
+@media (max-width:375px)
+    .overlay
+        .modal
+            width: 80%
+            padding: 40px 20px

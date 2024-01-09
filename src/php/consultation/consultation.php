@@ -19,7 +19,7 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
  
 $mail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');
-$mail->addAddress('todzievdier@gmail.com', 'User');
+$mail->addAddress('todzievdier@gmail.com', 'Mustafa');
 $mail->isHTML(true);
 
 $mail->Subject ='Консультация';
