@@ -157,25 +157,55 @@ $(document).ready(function () {
     validateForm(".make-order form");
 
     //отправка на почту при помощи ajax
-    $('form').submit(function(e) {
-        e.preventDefault();
+    // $('form').submit(function(e) {
+    //     e.preventDefault();
 
-        if($(this).valid()) {
-            $('body').addClass('sending')
-        } else {
-            return
-        }
+    //     if($(this).valid()) {
+    //         $('body').addClass('sending')
+    //     } else {
+    //         return
+    //     }
 
-        $.ajax({
-            type: "POST",
-            url: 'php/mail.php',
-            data: $(this).serialize() 
-        }).done(function() {
-            $(this).find('input').val('');
-            $('body').removeClass('sending');
-            $("form").trigger("reset");;
+    //     $.ajax({
+    //         type: "POST",
+    //         url: 'php/mail.php',
+    //         data: $(this).serialize() 
+    //     }).done(function() {
+    //         $(this).find('input').val('');
+    //         $('body').removeClass('sending');
+    //         $("form").trigger("reset");;
+    //     });
+
+    //     return false
+    // });
+
+    function emailAjax(item, namephp) {
+        $(item).submit(function(e) {
+            e.preventDefault();
+    
+            if($(this).valid()) {
+                $('body').addClass('sending')
+            } else {
+                return
+            }
+    
+            $.ajax({
+                type: "POST",
+                url: namephp,
+                data: $(this).serialize() 
+            }).done(function() {
+                $(this).find('input').val('');
+                $('body').removeClass('sending');
+                $("form").trigger("reset");;
+            });
+    
+            return false
         });
+    
+    }
 
-        return false
-    });
+    emailAjax('.consultation', 'php/consultation/consultation.php')
+    emailAjax('.make-order', 'php/make-order/make-order.php')
+
+
 })

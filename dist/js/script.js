@@ -153,10 +153,29 @@ $(document).ready(function () {
         });
     };
 
-    $('form').submit(function(e){
-        e.preventDefault();
-    })
-
     validateForm(".consultation form");
     validateForm(".make-order form");
+
+    //отправка на почту при помощи ajax
+    $('form').submit(function(e) {
+        e.preventDefault();
+
+        if($(this).valid()) {
+            $('body').addClass('sending')
+        } else {
+            return
+        }
+
+        $.ajax({
+            type: "POST",
+            url: 'php/mail.php',
+            data: $(this).serialize() 
+        }).done(function() {
+            $(this).find('input').val('');
+            $('body').removeClass('sending');
+            $("form").trigger("reset");;
+        });
+
+        return false
+    });
 })
