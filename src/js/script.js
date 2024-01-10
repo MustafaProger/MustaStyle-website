@@ -189,4 +189,16 @@ $(document).ready(function () {
     $("#close").on('click', function() {
         $('body').removeClass('sent');
     })
+    
+    $(window).scroll(function () {
+        if (window.matchMedia('(max-width: 425px)').matches) {
+            // Ваше условие для ширины экрана менее 425px
+            if ($(window).scrollTop() > 1600) {
+                $('.page-up').fadeIn();
+            } else {
+                $('.page-up').fadeOut();
+            }
+        }
+    });
+
 })

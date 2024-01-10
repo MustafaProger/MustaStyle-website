@@ -389,7 +389,7 @@ body.sent
 
 .comments
     .content
-        padding: 100px 100px 0 100px
+        padding: 100px
         .title
             @include title
         .comments-block
@@ -409,19 +409,92 @@ body.sent
                 @include text
                 text-align: left
                 color: #828283
-                    
-.loading
-    display: none
+
+.footer
+    position: relative
+    padding: 80px 0 50px 0
+    background: #F6F6F6
+    .content
+        display: flex
+        justify-content: space-between
+        max-width: 800px
+        margin: 0 auto
+        padding: 0 15px 50px 15px
+        .title
+            font-size: 32px
+            text-transform: uppercase
+            font-weight: 900
+            padding: 0 0 10px 0
+        .text, span
+            @include text
+            text-decoration: none
+            text-align: left
+            color: #828283
+        .author
+            max-width: 300px
+            &__about
+                .text
+                    @include text
+                    text-align: left
+                    color: #828283
+            &__phone
+                .title
+                    font-size: 25px
+        .contacts
+            max-width: 350px
+            margin-rigth: auto
+            &-links
+                display: flex
+                flex-direction: column
+                margin: 10px 0 0 0
+                &__item
+                    position: relative
+                    img
+                        width: 32px
+                        height: 32px
+                    span
+                        position: absolute
+                        top: 15%
+                        left: 11.5%
+    .author-law
+        color: #828283
+        font-size: 16px
+        text-align: center
+    .back-up
+        position: absolute
+        bottom: 12%
+        right: 5%
+        text-align: right
+        padding: 0 25px 0 0
+        a
+            color: black
+            text-decoration: none
+            span
+
+            img
+                position: absolute
+                top: -30%
+                right: -10%     
+
+.page-up
     position: fixed
-    top: 40%
-    left: 50%
-    width: 50px
-    height: 50px
-    z-index: 1000000
-    border: 5px solid rgba(255, 255, 255, 0.1)
-    border-top: 5px solid white
-    border-radius: 100%
-    animation: loading 1s infinite linear
+    bottom: 40px
+    right: 40px
+    display: none
+    &::after
+        content: ''
+        position: absolute
+        right: -47%
+        top: -47%
+        z-index: -1
+        width: 60px
+        height: 60px
+        border-radius: 100%
+        background-color: #F6F6F6
+        transition: all 0.25s
+    img
+        width: 30px
+        height: 30px
 
 .overlay
     position: fixed
@@ -459,3 +532,16 @@ body.sent
         .text
             @include text
             padding: 0
+
+.loading
+    display: none
+    position: fixed
+    top: 40%
+    left: 50%
+    width: 50px
+    height: 50px
+    z-index: 1000000
+    border: 5px solid rgba(255, 255, 255, 0.1)
+    border-top: 5px solid white
+    border-radius: 100%
+    animation: loading 1s infinite linear

@@ -172,11 +172,38 @@
     
     .comments
         .content
-            padding: 100px 20px 0 20px
+            padding: 100px 20px 50px 20px
             .comments-block
                 padding: 15px 0
                 &__img
-                    display: none
+                    display: none           
+
+    .footer
+        .content
+            flex-direction: column
+            .author
+                max-width: 500px
+                &__about
+                    padding: 0 0 20px 0
+            .contacts
+                max-width: 500px
+                padding: 0 0 50px 0
+                &-links
+                    &__item
+                        img
+                            width: 32px
+                            height: 32px
+                        span
+                            position: absolute
+                            top: 15%
+                            left: 8.5%
+        .back-up
+            position: absolute
+            bottom: 7%
+            a
+                img
+                    position: absolute
+                    right: -10%     
 
 @media (max-width:618px)
     
@@ -202,6 +229,17 @@
                         border: 1px solid $color_black-1
                         box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
     
+    .footer
+        .content
+            .author
+            .contacts
+                &-links
+                    &__item
+                        span
+                            position: absolute
+                            top: 15%
+                            left: 9.5%
+                            
 @media (max-width:425px)
     .consultation-or-make-order
         .content
@@ -211,6 +249,19 @@
                     li
                         width: 100%
 
+    .footer
+        .content
+            .author
+            .contacts
+                &-links
+                    &__item
+                        span
+                            position: absolute
+                            top: 15%
+                            left: 11.5%
+        .back-up
+            display: none
+    
 @media (max-width:375px)
     .overlay
         .modal
@@ -218,4 +269,15 @@
             padding: 40px 20px
     .comments
         .content
-            padding: 100px 0 0 0
+            padding: 100px 0 20px 0
+
+    .footer
+        .content
+            .author
+            .contacts
+                &-links
+                    &__item
+                        span
+                            position: absolute
+                            top: 15%
+                            left: 13.5%
