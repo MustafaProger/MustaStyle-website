@@ -186,8 +186,11 @@ $(document).ready(function () {
     emailAjax('.make-order', 'php/make-order/make-order.php')
 
     // закрытие модального окна при нажатии на close (&times;)
-    $(".close").on('click', function() {
+    $("#close-thanks").on('click', function() {
         $('body').removeClass('sent');
+    })
+
+    $("#close-recommend").on('click', function() {
         $('body').removeClass('recommend');
     })
     

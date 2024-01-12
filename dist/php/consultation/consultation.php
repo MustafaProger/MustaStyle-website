@@ -20,6 +20,7 @@ $mail->Port = 465;
  
 $mail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');
 $mail->addAddress('todzievdier@gmail.com', 'Mustafa');
+$mail->addCC($email); // Добавим копию письма пользователю
 $mail->isHTML(true);
 
 $mail->Subject ='Консультация';
@@ -27,7 +28,6 @@ $mail->Subject ='Консультация';
 $html_content = file_get_contents('consultaion.html');
 if ($html_content === false) {
     die('Не удалось прочитать файл HTML');
-    
 }
 
 $html_content = str_replace('{NAME}', $name, $html_content);
@@ -39,12 +39,35 @@ $html_content = str_replace('{MORE_INFO}', $additional_info, $html_content);
 $mail->Body = $html_content;
 
 $headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+$headers[] = 'Content-type: text/html; charset=utf-8'; // Используйте utf-8 вместо iso-8859-1
 
 if(!$mail->send()) {
-    return false;
+    echo 'Ошибка при отправке письма: ' . $mail->ErrorInfo;
 } else {
-    return true;
-}
+    echo 'Письмо успешно отправлено';
 
+    // Отправим копию письма пользователю
+    $userMail = new PHPMailer;
+    $userMail->CharSet = 'utf-8';
+
+    $userMail->isSMTP();
+    $userMail->Host = 'smtp.gmail.com';
+    $userMail->SMTPAuth = true;
+    $userMail->Username = 'mustastylefeedback@gmail.com';
+    $userMail->Password = 'your-email-password'; // Используйте безопасный способ хранения пароля
+    $userMail->SMTPSecure = 'ssl';
+    $userMail->Port = 465;
+
+    $userMail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');
+    $userMail->addAddress($email, $name); // Адрес пользователя
+    $userMail->isHTML(true);
+
+    $userMail->Subject ='Копия консультации';
+
+    $userHtmlContent = "Спасибо, $name, за ваш запрос на консультацию. Мы свяжемся с вами в ближайшее время.";
+
+    $userMail->Body = $userHtmlContent;
+
+    $userMail->send(); // Отправим письмо пользователю
+}
 ?>
