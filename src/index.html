@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- подлючение favicon -->
-    <link rel="icon" href="icons/iconFavicon.svg" type="image/x-icon">
+    <link rel="icon" href="icons/iconFavicon.png" type="image/x-icon">
     <!-- подлючение slick-слайдер -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <!-- подлючение шрифта для текста-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lora&display=swap" rel="stylesheet">
+    <!-- подлючение normalize-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
     <!--подлючение стилей-->
     <link rel="stylesheet" href="css/style.min.css">
     <title>MustaStyle</title>
@@ -54,7 +56,6 @@
     <section class="promo" id="promo">
         <div class="container">
             <div class="content">
-                <!-- <div class="background-attachment"></div> -->
                 <h1 class="title">MustaStyle - ваш персональный путеводитель в мире элегантных часов</h1>
                 <h1 class="title title_for_mobile">MustaStyle</h1>
                 <p class="subtitle">Откройте дверь в мир роскошных часов с MustaStyle: где классика встречает инновации,
@@ -181,20 +182,20 @@
 
                     <div class="tabs__content active">
                         <div class="consultation">
-                            <form action="send_email.php" method="post" class="form consultation">
-                                <label for="name">Имя<span>*</span></label>
+                            <form action="#" method="post" class="form consultation">
+                                <label>Имя<span>*</span></label>
                                 <input name="name" type="text" placeholder="Мустафа">
 
-                                <label for="email">E-mail<span>*</span></label>
+                                <label>E-mail<span>*</span></label>
                                 <input name="email" type="email" placeholder="diertojiev@yandex.ru">
 
-                                <label for="phone">Номер тел.<span>*</span></label>
+                                <label>Номер тел.<span>*</span></label>
                                 <input name="phone" type="tel" placeholder="+7 968 060-30-84">
 
-                                <label for="budget">Ваш бюджет</label>
+                                <label>Ваш бюджет</label>
                                 <input name="budget" type="text" placeholder="10000-100000 руб.">
 
-                                <label for="additional-info">Дополнительная информация</label>
+                                <label>Дополнительная информация</label>
                                 <textarea name="additional-info" placeholder="Опишите ваши предпочтения" cols="30"
                                     rows="10"></textarea>
                                 <button class="btn" type="submit">Заказать консультацию</button>
@@ -206,20 +207,21 @@
                     <div class="tabs__content">
                         <div class="make-order">
 
-                            <form action="" class="form make-order">
-                                <label for="name">Имя<span>*</span></label>
+                            <form action="#" class="form make-order">
+                                <label>Имя<span>*</span></label>
                                 <input name="name" type="text" placeholder="Мустафа">
 
-                                <label for="email">E-mail<span>*</span></label>
+                                <label>E-mail<span>*</span></label>
                                 <input name="email" type="text" placeholder="diertojiev@yandex.ru">
 
-                                <label for="phone">Номер тел.<span>*</span></label>
+                                <label>Номер тел.<span>*</span></label>
                                 <input name="phone" type="tel" placeholder="+7 968 060-30-84">
 
-                                <label for="model-watch">Модель часов</label>
-                                <input name="model-watch" type="text" placeholder="Rolex Submariner">
+                                <label>Модель часов</label>
+                                <input name="model-watch" type="text" placeholder="Rolex Submariner"
+                                    class="model-watch">
 
-                                <label for="additional-info">Дополнительная информация</label>
+                                <label>Дополнительная информация</label>
                                 <textarea name="additional-info" placeholder="Уточните, что вы хотел бы узнать"
                                     cols="30" rows="10"></textarea>
                                 <button class="btn" type="submit">Оформить заказ</button>
@@ -287,7 +289,7 @@
             <div class="content">
                 <div class="contacts">
                     <h1 class="title">Связаться с нами</h1>
-                    <address><a class="text contacts__address"
+                    <address><a class="text contacts__address" target="_blank"
                             href="https://yandex.ru/maps/103817/moskovsky/house/raduzhnaya_ulitsa_5s1/Z04YdQBhSkAEQFtvfXl4cnhjZA==/?ll=37.371353%2C55.593400&z=16.78">Адреас:
                             Радужная
                             улица, 5с1, микрорайон Град Московский, Московский, Москва</a></address>
@@ -313,8 +315,8 @@
                         <h4 class="title">Контакты</h4>
                         <a href="tel:+79680603084" class="text phone">+7
                             968 060-30-84</a><br>
-                            <a href="tel:+79680603084" class="text phone">+7
-                                968 123-32-98</a>
+                        <a href="tel:+79680603084" class="text phone">+7
+                            968 123-32-98</a>
                     </div>
                 </div>
             </div>
@@ -322,20 +324,28 @@
             <div class="back-up">
                 <a href="#promo">
                     <span>Back up</span>
-                    <img width="32" height="32" src="https://img.icons8.com/ios/100/up--v1.png" alt="up--v1" /></a>
+                    <img width="32" height="32" src="https://img.icons8.com/ios/100/up--v1.png" alt="up--v1"></a>
             </div>
+        </div>
     </footer>
 
     <div class="page-up">
-            <a href="#promo"><img width="32" height="32" src="https://img.icons8.com/ios/100/up--v1.png" alt="" /></a>
+        <a href="#promo"><img width="32" height="32" src="https://img.icons8.com/ios/100/up--v1.png" alt=""></a>
     </div>
 
     <div class="overlay">
         <div class="modal">
-            <div class="modal-content">
-                <div class="close" id="close">&times;</div>
+            <div class="modal-content" id="thanks">
+                <div class="close">&times;</div>
                 <h1 class="title">Письмо отправлено</h1>
                 <p class="text">Спасибо за ваше письмо! В ближайшее время с вами свяжется специалист.</p>
+            </div>
+            <div class="modal-content" id="recommend">
+                <div class="close">&times;</div>
+                <h1 class="title">Рекомендация</h1>
+                <p class="text">MustaStyle имеет большой ассортимент часов и чтобы познакомиться с ним предлагаем вам
+                    перейти в <a href="https://t.me/mustafa_style_watch_bot" target="_blank" class="link">телеграм бота от
+                        MustaStyle</a>.</p>
             </div>
         </div>
     </div>

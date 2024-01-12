@@ -61,9 +61,9 @@ gulp.task('img', function(){
     .pipe(gulp.dest('dist/img'));
 })
 
-gulp.task('mailer', function(){
-    return gulp.src('src/mailer/**/*') // путь к исходным файлам 
-    .pipe(gulp.dest('dist/mailer'));
+gulp.task('php', function(){
+    return gulp.src('src/php/**/*') // путь к исходным файлам 
+    .pipe(gulp.dest('dist/php'));
 })
 
 gulp.task('watch', function () {
@@ -71,5 +71,5 @@ gulp.task('watch', function () {
     gulp.watch('src/*.html').on("change", gulp.parallel('html'));
 });
 
-gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'html', 'scripts', 'icons', 'img', 'mailer'));
+gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'html', 'scripts', 'icons', 'img', 'php'));
 

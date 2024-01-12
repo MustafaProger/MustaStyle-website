@@ -100,7 +100,7 @@ $(document).ready(function () {
         // По умолчанию активируем секцию консультации
         $('.text_about_section-consultation').addClass('active');
         $('.text_about_section-make-order').removeClass('active');
-    }
+    };
 
     $('.consultation__btn').on('click', function () {
         // Сохраняем выбор секции в localStorage
@@ -186,10 +186,12 @@ $(document).ready(function () {
     emailAjax('.make-order', 'php/make-order/make-order.php')
 
     // закрытие модального окна при нажатии на close (&times;)
-    $("#close").on('click', function() {
+    $(".close").on('click', function() {
         $('body').removeClass('sent');
+        $('body').removeClass('recommend');
     })
     
+    //добавление фиксированной кнопки page-up
     $(window).scroll(function () {
         if (window.matchMedia('(max-width: 425px)').matches) {
             // Ваше условие для ширины экрана менее 425px
@@ -200,5 +202,18 @@ $(document).ready(function () {
             }
         }
     });
+    
+    //модальное окно "рекомендация" при нажатии "модель часов"
+    function recommend() {
+        let score = 1;
+        
+        if (score > 0) {
+            $('.model-watch').one('click', function() {
+                $('body').addClass('recommend'); 
+                score--;
+            });
+        }
+    };
 
+    recommend();
 })

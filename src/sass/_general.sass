@@ -48,11 +48,20 @@ body.sending::after
 
 body.sent
     overflow: hidden
-    .overlay
-        display: block
     .loading
         display: none
-    
+    .overlay
+        display: block
+        #thanks
+            display: block
+
+body.recommend
+    overflow: hidden
+    .overlay
+        display: block
+        #recommend
+            display: block
+
 .container
     max-width: 1140px
     margin: 0 auto
@@ -469,8 +478,6 @@ body.sent
         a
             color: black
             text-decoration: none
-            span
-
             img
                 position: absolute
                 top: -30%
@@ -532,6 +539,11 @@ body.sent
         .text
             @include text
             padding: 0
+            .link
+                color: $color_black-1
+                font-weight: 900
+    #thanks, #recommend
+        display: none
 
 .loading
     display: none
