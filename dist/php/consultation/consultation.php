@@ -54,17 +54,19 @@ if(!$mail->send()) {
     $userMail->Host = 'smtp.gmail.com';
     $userMail->SMTPAuth = true;
     $userMail->Username = 'mustastylefeedback@gmail.com';
-    $userMail->Password = 'your-email-password'; // Используйте безопасный способ хранения пароля
+    $userMail->Password = 'uwre bhfd oynd sxxi';
     $userMail->SMTPSecure = 'ssl';
     $userMail->Port = 465;
 
     $userMail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');
-    $userMail->addAddress($email, $name); // Адрес пользователя
+    $userMail->addAddress($email, $name);
     $userMail->isHTML(true);
 
-    $userMail->Subject ='Копия консультации';
+    $userMail->Subject ='Благодарность!';
 
-    $userHtmlContent = "Спасибо, $name, за ваш запрос на консультацию. Мы свяжемся с вами в ближайшее время.";
+    $userHtmlContent = file_get_contents('thanks.html');
+    $userHtmlContent = str_replace('{NAME}', $name, $userHtmlContent);
+
 
     $userMail->Body = $userHtmlContent;
 

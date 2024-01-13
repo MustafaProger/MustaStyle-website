@@ -20,6 +20,7 @@ $mail->Port = 465;
  
 $mail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');
 $mail->addAddress('todzievdier@gmail.com', 'User');
+$mail->addCC($email); // Добавим копию письма пользователю
 $mail->isHTML(true);
 
 $mail->Subject ='Оформить заказ';
@@ -44,7 +45,33 @@ $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 if(!$mail->send()) {
     return false;
 } else {
-    return true;
+    echo 'Письмо успешно отправлено';
+
+    // Отправим копию письма пользователю
+    $userMail = new PHPMailer;
+    $userMail->CharSet = 'utf-8';
+
+    $userMail->isSMTP();
+    $userMail->Host = 'smtp.gmail.com';
+    $userMail->SMTPAuth = true;
+    $userMail->Username = 'mustastylefeedback@gmail.com';
+    $userMail->Password = 'uwre bhfd oynd sxxi';
+    $userMail->SMTPSecure = 'ssl';
+    $userMail->Port = 465;
+
+    $userMail->setFrom('mustastylefeedback@gmail.com', 'MystaStyle');
+    $userMail->addAddress($email, $name);
+    $userMail->isHTML(true);
+
+    $userMail->Subject ='Благодарность!';
+
+    $userHtmlContent = file_get_contents('thanks.html');
+    $userHtmlContent = str_replace('{NAME}', $name, $userHtmlContent);
+
+
+    $userMail->Body = $userHtmlContent;
+
+    $userMail->send(); // Отправим письмо пользователю
 }
 
 ?>
