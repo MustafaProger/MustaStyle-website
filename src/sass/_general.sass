@@ -221,15 +221,16 @@ body.recommend
             @include text
             padding: 0 0 50px 0
         .about-block
-            display: flex
-            flex-wrap: wrap
-            justify-content: center
+            width: auto
+            height: auto
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            grid-template-rows: repeat(3, 1fr)
+            gap: 10px
             .content-block
-                width: 45%
-                min-height: 300px
-                height: 100%
+                width: auto
+                height: auto
                 border: 1px solid $color-black_1
-                margin: 10px
                 padding: 30px
                 border-radius: 10px
                 .number

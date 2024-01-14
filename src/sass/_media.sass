@@ -8,31 +8,11 @@
 // Данный класс срабатывает, когда мы нажимаем на меню бургер и этот класс добавляется к нашим li(a). Если этого класса не будет то анимация на наши li будут срабатывать после загрузки сайта, а не после нажатия на меню бурер
 .fadeindown
     animation: fadeindown 1s ease-in-out
-
-@media (max-width:1080px)
-    .about
-        .content
-            .about-block
-                .content-block
-                    min-height: 330px
      
 @media (max-width:947px)
-    .about
-        .content
-            .about-block
-                .content-block
-                    min-height: 360px
-
     .overlay
         .modal
-            width: 70%
-
-@media (max-width:821px)
-    .about
-        .content
-            .about-block
-                .content-block
-                    min-height: 400px        
+            width: 70%   
     
 @media (max-width:768px)
     .header
@@ -139,12 +119,8 @@
     .about
         .content
             .about-block
-                flex-direction: column
-                .content-block
-                    margin: 10px 0
-                    min-height: auto
-                    height: 100%
-                    width: 100%
+                grid-template-columns: repeat(1, 1fr)
+                grid-template-rows: repeat(1, 1fr)
 
     .new-modals
         .content
