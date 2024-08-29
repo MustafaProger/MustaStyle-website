@@ -19,7 +19,7 @@ This project was developed as part of a college assignment to enhance my front-e
 
 You can view the live version of the website here:
 
-[Live Demo](https://github.com/MustafaProger/MustaStyle-website/dist/)
+[Live Demo](https://mustafaproger.github.io/MustaStyle-website/dist/)
 
 **Note:** The website may not fully function if hosted on GitHub Pages because GitHub Pages does not support PHP or server-side technologies required for email functionality with PHPMailer.
 
